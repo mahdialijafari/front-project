@@ -13,7 +13,7 @@
     import { Autoplay, FreeMode, Pagination } from "swiper/modules";
     import fetchData from "../../../Utils/fetchData";
     import { Button, Stack, Typography } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
     export default function Categories() {
     const [categorySlider, setCategorySlider] = useState();
@@ -28,7 +28,7 @@ import { Link, useNavigate } from "react-router-dom";
         <SwiperSlide key={index}>
         <img
             src={
-            import.meta.env.VITE_BASE_URL + e.image[0].formats?.medium?.url
+            import.meta.env.VITE_BASE_URL + e.image[0]?.url
             }
             alt={e.title}
         />
@@ -36,11 +36,21 @@ import { Link, useNavigate } from "react-router-dom";
         </SwiperSlide>
         
     ));
+
+    const categorySectionRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#category-section") {
+      categorySectionRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [location]);
+
     return (
         <>
         <Typography sx={{textAlign:'center',marginTop:'3%',fontSize:'34px'}}>Categories</Typography>
 
-        <Stack height={"70vh"} sx={{backgroundColor:'#E17564' ,margin:'1% 8%', padding:'3% 6%', borderRadius:'40px'}}>
+        <Stack ref={categorySectionRef} id="category-section" height={"70vh"} sx={{backgroundColor:'#E17564' ,margin:'1% 8%', padding:'3% 6%', borderRadius:'40px'}}>
         <Swiper
             slidesPerView={3}
             spaceBetween={30}

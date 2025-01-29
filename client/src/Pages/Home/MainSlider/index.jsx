@@ -26,7 +26,7 @@ export default function MainSlider() {
     <SwiperSlide key={index}>
       <img
         src={
-          import.meta.env.VITE_BASE_URL + e.image.formats.medium.url
+          import.meta.env.VITE_BASE_URL + e.image.url
         }
         alt={e.title}
       />

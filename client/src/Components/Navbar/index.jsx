@@ -11,7 +11,7 @@ const Navbar = () => {
     const { token } = useSelector((state) => state.auth);
     const navigate=useNavigate()
   return (
-    <Box position={'static'} display={"flex"} justifyContent={"space-between"} sx={{backgroundColor:'#DE8F5F',padding:'0 10%'}}>
+    <Box id={'navbar'} position={'static'} display={"flex"} justifyContent={"space-between"} sx={{backgroundColor:'#DE8F5F',padding:'0 10%'}}>
       <Box sx={{ display: "flex", alignItems: "center", gap: "25px" }}>
         <Typography
           component={"h1"}
@@ -22,11 +22,11 @@ const Navbar = () => {
         <Button variant="text" sx={{fontSize:'16px',color:'white'}} color="white" onClick={()=>navigate('/')}>
           Home
         </Button>
-        <Button variant="text" sx={{fontSize:'16px',color:'white'}} color="white" onClick={()=>navigate('/"/products/all/all-category"')}>
+        <Button variant="text" sx={{fontSize:'16px',color:'white'}} color="white" onClick={()=>navigate('/products/all/all-category')}>
           Products
         </Button>
         <Button variant="text" sx={{fontSize:'16px',color:'white'}} color="white" onClick={()=>navigate('/about')}>
-          About
+          About Us
         </Button>
       </Box>
       <Box sx={{ display: "flex", alignItems: "center", gap: "25px" }}>

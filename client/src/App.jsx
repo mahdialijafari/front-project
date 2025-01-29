@@ -29,7 +29,7 @@ export default function App() {
             element={<Product />}
           />
           <Route
-            path="/product-details/:id/:name"
+            path="/product-details/:id/:title"
             element={<ProductDetails />}
           />
           <Route
