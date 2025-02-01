@@ -13,11 +13,11 @@
     import { Autoplay, FreeMode, Pagination } from "swiper/modules";
     import fetchData from "../../../Utils/fetchData";
     import { Button, Stack, Typography } from "@mui/material";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
     export default function Categories() {
-    const [categorySlider, setCategorySlider] = useState();
-    const navigate=useNavigate()
+    const [categorySlider, setCategorySlider] = useState([]);
     useEffect(() => {
         (async () => {
         const response = await fetchData("categories?populate=*");
@@ -32,7 +32,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
             }
             alt={e.title}
         />
-        <Link >{e.title}</Link>
+        <Link to={`/products/${e.id}`}>{e.title}</Link>
         </SwiperSlide>
         
     ));
@@ -45,7 +45,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
       categorySectionRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }, [location]);
-
     return (
         <>
         <Typography sx={{textAlign:'center',marginTop:'3%',fontSize:'34px'}}>Categories</Typography>

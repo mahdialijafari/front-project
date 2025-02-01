@@ -12,7 +12,7 @@ export default function Footer() {
         py: 6,
         px: 4,
         textAlign: "center",
-        mt: 8, // Spacing from content
+        mt: 0, // Spacing from content
         borderTop: "3px solid #DE8F5F", // Warm Peach Accent
       }}
     >
