@@ -63,7 +63,7 @@ const Navbar = () => {
         />
         <Tooltip title="Cart">
       <IconButton>
-      <ShoppingCartIcon sx={{ color: "white", cursor: "pointer" }} />
+      <ShoppingCartIcon onClick={()=>navigate('/cart')} sx={{ color: "white", cursor: "pointer" }} />
       </IconButton>
     </Tooltip>
         {token ? (
@@ -73,7 +73,7 @@ const Navbar = () => {
             </IconButton>
           </Tooltip>
         ) : (
-          <Tooltip title="Delete">
+          <Tooltip title="Login">
             <IconButton>
               <Button onClick={() => navigate("/auth")}>
                 <LoginIcon sx={{ color: "white", cursor: "pointer" }} />

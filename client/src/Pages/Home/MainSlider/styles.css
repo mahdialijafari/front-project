@@ -1,30 +1,91 @@
+/* Slider Container */
+.main-slider {
+  width: 100%;
+  height: 100%;
+}
 
-  .swiper .main-slider{
-    width: 100%;
-    height: 100%;
-  }
-  
-  .main-slider .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff2ce;
-  
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+/* Individual Slide */
+.main-slider .swiper-slide {
+  text-align: center;
+  background: linear-gradient(135deg, #fff2ce, #fde5c8); /* Soft gradient background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Slide Images */
+.main-slider .swiper-slide img {
+  width: 90%;
+  height: 90%;
+  object-fit: fill;
+  border-radius: 16px;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Hover Effect */
+.main-slider .swiper-slide img:hover {
+  transform: scale(1.05); /* Zoom in slightly */
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Navigation Buttons */
+.custom-prev,
+.custom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: linear-gradient(45deg, #872341, #E17564); /* Jewel Nest theme */
+  color: white;
+  padding: 14px;
+  border-radius: 50%;
+  transition: 0.3s ease-in-out;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+/* Left Button */
+.custom-prev {
+  left: 15px;
+}
+
+/* Right Button */
+.custom-next {
+  right: 15px;
+}
+
+/* Button Hover Effects */
+.custom-prev:hover,
+.custom-next:hover {
+  background: linear-gradient(45deg, #E17564, #872341); /* Reverse gradient */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .main-slider .swiper-slide img {
-    display: block;
+    width: 90%;
+    height: 80%;
+  }
+
+  .custom-prev,
+  .custom-next {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-slider .swiper-slide img {
     width: 100%;
-    height: 100%;
-    object-fit: fill;
-    padding: 5%;
+    height: 75%;
   }
-  
-  .main-slider .swiper {
-    margin-left: auto;
-    margin-right: auto;
+
+  .custom-prev,
+  .custom-next {
+    padding: 8px;
   }
-  
+}

@@ -13,7 +13,7 @@ const cartSlice=createSlice({
             let add=false
             state.totalPrice=state.totalPrice+ +action.payload.price
             state.items=state.items?.map((e)=>{
-                if(e._id==action.payload._id){
+                if(e.id==action.payload.id){
                     e.cartQuantity+=1
                     add=true
                 }
@@ -25,7 +25,7 @@ const cartSlice=createSlice({
         },
         removeFromCart:(state,action)=>{
             state.items=state.items?.filter((e)=>{
-                if(e._id==action.payload){
+                if(e.id==action.payload){
                     state.totalPrice=state.totalPrice-e.price
                     e.cartQuantity=e.cartQuantity-1
                     if(e.cartQuantity==0){

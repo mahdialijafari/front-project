@@ -8,8 +8,6 @@
   text-align: center;
   font-size: 18px;
   background: #fff;
-
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,17 +23,20 @@
   transition: all 0.5s;
   position: relative;
 }
-.categories-slider .swiper-slide:hover img{
-  filter: brightness(60%);
 
+.categories-slider .swiper-slide:hover img {
+  filter: brightness(60%);
 }
+
 .categories-slider .swiper-slide a {
   display: none;
   position: absolute;
 }
-.categories-slider .swiper-slide:hover a{
-    display: inline;
-    text-decoration: none;
-    color: white;
-    font-size: 24px;
+
+.categories-slider .swiper-slide:hover a {
+  display: inline;
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
 }
+
