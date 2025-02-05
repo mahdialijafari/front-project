@@ -8,6 +8,7 @@ import {
   Home,
   NotFound,
   Cart,
+  Blog,
 } from "./Pages";
 import { Navbar, Footer } from "./Components";
 import { Box, CssBaseline, ThemeProvider } from "@mui/material";
@@ -24,10 +25,12 @@ export default function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog/>} />
           <Route
             path="/products/:categoryId/:categoryName"
             element={<Product />}
           />
+          
           <Route
             path="/product-details/:id/:title"
             element={<ProductDetails />}

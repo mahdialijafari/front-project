@@ -18,7 +18,7 @@
 /* Slide Images */
 .main-slider .swiper-slide img {
   width: 90%;
-  height: 90%;
+  height: 95%;
   object-fit: fill;
   border-radius: 16px;
   transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;

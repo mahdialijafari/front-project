@@ -9,16 +9,16 @@ import "swiper/css/pagination";
 
 import "./styles.css";
 
-// import required modules
+// Import required modules
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import fetchData from "../../../Utils/fetchData";
-import { Button, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 export default function Categories() {
   const [categorySlider, setCategorySlider] = useState([]);
-
+  
+  // Fetch category data
   useEffect(() => {
     (async () => {
       const response = await fetchData("categories?populate=*");
@@ -26,19 +26,24 @@ export default function Categories() {
     })();
   }, []);
 
+  // Generate category items for Swiper slides
   const items = categorySlider?.map((e, index) => (
     <SwiperSlide key={index}>
       <img
         src={import.meta.env.VITE_BASE_URL + e.image[0]?.url}
         alt={e.title}
       />
-      <Link to={`/products/${e.id}`}>{e.title}</Link>
+      {/* Fixing the category link to include both id and slugged title */}
+      <Link to={`/products/${e.id}/${e.title.replaceAll(" ", "-").toLowerCase()}`}>
+        {e.title}
+      </Link>
     </SwiperSlide>
   ));
 
   const categorySectionRef = useRef(null);
   const location = useLocation();
 
+  // Scroll to the category section when the hash is set
   useEffect(() => {
     if (location.hash === "#category-section") {
       categorySectionRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -47,8 +52,10 @@ export default function Categories() {
 
   return (
     <>
-      <Stack ref={categorySectionRef} id="category-section" height={"80vh"} sx={{ backgroundColor: '#E17564', margin: '3% 8%', padding: '2% 6%',paddingBottom:'4%', borderRadius: '40px' }}>
-        <Typography sx={{ textAlign: 'center', fontSize: '34px', marginBottom: '20px', color: '#3D2C2E' }}>Categories</Typography>
+      <Stack ref={categorySectionRef} id="category-section" height={"80vh"} sx={{ backgroundColor: '#E17564', margin: '3% 5%', padding: '2% 5%', paddingBottom: '4%', borderRadius: '40px' }}>
+        <Typography sx={{ textAlign: 'center', fontSize: '34px', marginBottom: '20px', color: '#3D2C2E' }}>
+          Categories
+        </Typography>
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
@@ -64,22 +71,20 @@ export default function Categories() {
           className="categories-slider"
           breakpoints={{
             1200: {
-              slidesPerView: 3, // Show 2 slides on tablets
-              spaceBetween: 30,  // Adjust space between slides for tablets
+              slidesPerView: 3,
+              spaceBetween: 30,
             },
-            // When the viewport width is <= 768px (tablet and smaller devices)
             768: {
-              slidesPerView: 2, // Show 2 slides on tablets
-              spaceBetween: 20,  // Adjust space between slides for tablets
+              slidesPerView: 2,
+              spaceBetween: 20,
             },
-            // When the viewport width is <= 480px (phones)
             480: {
-              slidesPerView: 1, // Show 1 slide on phones
-              spaceBetween: 10, // Adjust space between slides for phones
+              slidesPerView: 1,
+              spaceBetween: 10,
             },
             0: {
-              slidesPerView: 1, // Show 1 slide on phones
-              spaceBetween: 10, // Adjust space between slides for phones
+              slidesPerView: 1,
+              spaceBetween: 10,
             },
           }}
         >

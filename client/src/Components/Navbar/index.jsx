@@ -21,12 +21,12 @@ const Navbar = () => {
       position={"static"}
       display={"flex"}
       justifyContent={"space-between"}
-      sx={{ backgroundColor: "#DE8F5F", padding: "0 8%" }}
+      sx={{ backgroundColor: "#DE8F5F", padding: "0 8%" ,height:'80px'}}
     >
       <Box sx={{ display: "flex", alignItems: "center", gap: "25px" }}>
         <Typography
           component={"h1"}
-          sx={{ fontSize: "28px", lineHeight: "80px", color: "#A94A4A" }}
+          sx={{ fontSize: "28px", color: "#A94A4A" }}
         >
           Jewel Nest
         </Typography>
@@ -45,6 +45,14 @@ const Navbar = () => {
           onClick={() => navigate("/products/all/all-category")}
         >
           Products
+        </Button>
+        <Button
+          variant="text"
+          sx={{ fontSize: "16px", color: "white" }}
+          color="white"
+          onClick={() => navigate("/blog")}
+        >
+          Blog
         </Button>
         <Button
           variant="text"
@@ -69,7 +77,7 @@ const Navbar = () => {
         {token ? (
           <Tooltip title="Profile">
             <IconButton>
-              <AccountCircleIcon sx={{ color: "white", cursor: "pointer" }} />
+              <AccountCircleIcon onClick={()=>navigate('/profile')} sx={{ color: "white", cursor: "pointer" }} />
             </IconButton>
           </Tooltip>
         ) : (

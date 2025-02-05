@@ -19,7 +19,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const {token}=useSelector((state)=>state.auth)
-  const navigate=useNavigate()
   const [product, setProduct] = useState(null);
   const { id } = useParams();
 

@@ -85,6 +85,9 @@ const Cart = () => {
                   <Typography variant="body2" sx={{ color: "#4A4A4A" }}>
                     ${e.price.toFixed(2)} each
                   </Typography>
+                  <Typography variant="body2" sx={{ color: "#4A4A4A" }}>
+                    Total: ${e.price * e.cartQuantity}
+                  </Typography>
                 </Box>
                 <Box
                   sx={{
@@ -138,7 +141,7 @@ const Cart = () => {
             sx={{ marginBottom: "20px" }}
           >
             <Typography variant="h6" sx={{ color: "#4A4A4A" }}>
-              Total
+              Total Price: 
             </Typography>
             <Typography
               variant="h6"
