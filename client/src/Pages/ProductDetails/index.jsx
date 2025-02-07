@@ -44,7 +44,7 @@ const ProductDetails = () => {
             backgroundColor: "#fff2ce",
             borderRadius: "16px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-            margin: "2% 20%",
+            margin: {sx:"1% 2%",lg:"2% 20%"},
             padding: "16px",
             display: "flex",
             justifyContent: "center",

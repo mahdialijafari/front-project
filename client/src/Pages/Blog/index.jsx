@@ -24,7 +24,6 @@ const Blog = () => {
         setLoading(false)
     })()
   }, []);
-console.log(blogs)
   return (
     <Box
       sx={{

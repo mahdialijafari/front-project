@@ -4,13 +4,12 @@ import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import fetchData from "../../Utils/fetchData";
 import { useDispatch, useSelector } from "react-redux";
-import PersonIcon from "@mui/icons-material/Person";
-import { blue, brown } from "@mui/material/colors";
+import { brown } from "@mui/material/colors";
 import notify from "../../Utils/notify";
 
 // Styled Box for the Profile Header
 const ProfileHeader = styled(Box)(({ theme }) => ({
-  backgroundColor: "#E17564", // Jewel Nest color for header
+  backgroundColor: "#E17564",
   padding: "30px",
   borderRadius: "20px",
   color: "white",
@@ -35,7 +34,6 @@ const Profile = () => {
    const [info,setInfo]=useState()
    const dispatch=useDispatch()
    const navigate=useNavigate()
-   console.log(id)
    useEffect(()=>{
     (async()=>{
       const response=await fetchData(`users?populate=*&filters[id][$eq]=${id}`)
@@ -91,15 +89,13 @@ const Profile = () => {
      }
    };
 
-   console.log(info)
   return (
-    <Box sx={{ backgroundColor: "#fff2ce", padding: "2% 8%", borderRadius: "20px" }}>
+    <Box sx={{ backgroundColor: "#fff2ce", padding: "2% 8%", borderRadius: "20px"}}>
       {/* Profile Header */}
       <ProfileHeader>
-        <Box sx={{ display: "flex", gap: "20px", alignItems: "center" }}>
+        <Box sx={{ display: "flex",flexWrap:'wrap', gap: "20px", alignItems: "center" }}>
           <Avatar
-            sx={{ width: 120, height: 120, bgcolor: brown[500] }}
-            // src={user?.profilePicture || "/default-avatar.png"} // Profile Picture
+            sx={{ width: 100, height: 100, bgcolor: brown[500] }}
           />
           <Box>
             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
@@ -133,10 +129,8 @@ const Profile = () => {
         <TextField
           fullWidth
           label="Username"
-          // value={profile.username}
           onChange={handleInputChange}
           name="username"
-          // disabled={!editing}
           variant="outlined"
           sx={{ backgroundColor: "#ffffff" }}
         />
@@ -145,10 +139,8 @@ const Profile = () => {
         <TextField
           fullWidth
           label="Email"
-          // value={profile.email}
           onChange={handleInputChange}
           name="email"
-          // disabled={!editing}
           variant="outlined"
           sx={{ backgroundColor: "#ffffff" }}
         />
@@ -162,7 +154,6 @@ const Profile = () => {
                 backgroundColor: "#DE8F5F",
                 "&:hover": { backgroundColor: "#D16458" },
               }}
-              // onClick={handleSave}
             >
               Update Profile
             </Button>

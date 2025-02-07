@@ -27,7 +27,7 @@ export default function SearchResult({ img, title, type, id }) {
         borderRadius={"5px"}
         sx={{ objectFit: "cover" }}
         src={import.meta.env.VITE_BASE_URL + img}
-        alt=""
+        alt={title}
       />
       <Typography variant="body2">{title}</Typography>
     </Stack>

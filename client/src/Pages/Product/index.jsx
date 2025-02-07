@@ -65,7 +65,7 @@ export default function Product() {
     >
       <Stack
         sx={{
-          height:'800px',
+          height:'550px',
           padding: "1% 1%",
           borderRadius: "50px",
           backgroundColor: "#BE3144",

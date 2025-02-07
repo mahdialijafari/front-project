@@ -199,6 +199,7 @@ const About = () => {
           sx={{
             textAlign: 'center',
             marginTop: '60px',
+            marginBottom:'30px',
             padding: '50px 30px',
             backgroundColor: '#fff2ce',
             color: '#333',
