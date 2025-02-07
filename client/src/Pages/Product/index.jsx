@@ -34,12 +34,12 @@ export default function Product() {
     (async () => {
       const response = await fetchData(
         `products?populate=*&categoryId&sort=${sort}&${
-          categoryId == "all" ? "" : `filters[categoryId][$eq]=${categoryId}&`
+          categoryId == "all" ? "" : `filters[categories][id][$eq]=${categoryId}&`
         }&filters[price][$gte]=${price[0]}&filters[price][$lte]=${price[1]}`
       );
       setProducts(response.data);
     })();
-  }, [price, sort, categoryId]);
+  }, [categoryId,price, sort]);
 
   const productItems = products?.map((e, index) => (
     <ProductCard

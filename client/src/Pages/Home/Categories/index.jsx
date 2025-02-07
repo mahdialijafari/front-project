@@ -13,11 +13,11 @@ import "./styles.css";
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import fetchData from "../../../Utils/fetchData";
 import { Stack, Typography } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 export default function Categories() {
   const [categorySlider, setCategorySlider] = useState([]);
-  
+  const {categoryId}=useParams()
   // Fetch category data
   useEffect(() => {
     (async () => {
